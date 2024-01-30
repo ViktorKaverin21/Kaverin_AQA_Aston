@@ -1,3 +1,5 @@
+package src;
+
 public class Rectangle implements Shape, ColoredShape {
     private double width;
     private double height;

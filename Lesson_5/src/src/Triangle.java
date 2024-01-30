@@ -1,3 +1,5 @@
+package src;
+
 public class Triangle implements Shape, ColoredShape {
     private double side1;
     private double side2;

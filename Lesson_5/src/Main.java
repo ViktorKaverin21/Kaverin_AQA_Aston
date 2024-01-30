@@ -1,17 +1,32 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Dog dog = new Dog("Tuzik");
+        Cat cat1 = new Cat("Barsik");
+        Cat cat2 = new Cat("Tuzik");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Animal[] animals = {dog, cat1, cat2};
+        Bowl bowl = new Bowl(15);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        for (Animal animal : animals) {
+            animal.run(300);
+            animal.swim(5);
+        }
+
+        System.out.println("Number of animals created: " + Animal.getAnimalCount());
+
+        System.out.println("Information about cats' satiety:\n");
+        for (Cat cat : new Cat[]{cat1, cat2}) {
+            cat.eat(bowl.getFoodAmount());
+            System.out.println(cat.name + " full: " + cat.isSatiety());
+        }
+
+        System.out.println("Adding food to the bowl...");
+        bowl.addFood(10);
+
+        System.out.println("New information about satiety of cats:");
+        for (Cat cat : new Cat[]{cat1, cat2}) {
+            cat.eat(bowl.getFoodAmount());
+            System.out.println(cat.name + " full: " + cat.isSatiety());
         }
     }
 }

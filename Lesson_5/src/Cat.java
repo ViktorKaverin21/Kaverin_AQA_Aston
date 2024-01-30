@@ -1,29 +1,21 @@
-public class Cat extends Animal {
-    String name;
-    static int countCat = 0;
+class Cat extends Animal {
+    private boolean satiety;
 
-    Cat(String name) {
-        super();
-        countCat++;
-        this.name = name;
+    public Cat(String name) {
+        super(name, 200, 0);
+        satiety = false;
     }
 
-    @Override
-    void run(int ran) {
-        if (ran > 200) {
-            System.out.println(name + " cannot to run more 200 m");
+    public void eat(int foodAmount) {
+        if (foodAmount >= 0) {
+            satiety = true;
+            System.out.println(name + " ate and became full.");
         } else {
-            System.out.println(name + " have run " + ran + " m");
+            System.out.println(name + " can't eat that much food.");
         }
     }
 
-    @Override
-    void swim(int swim) {
-        System.out.println("Cat cannot to swim");
-    }
-
-    static int getCountCat() {
-        return countCat;
+    public boolean isSatiety() {
+        return satiety;
     }
 }
-

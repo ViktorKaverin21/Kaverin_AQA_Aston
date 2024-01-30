@@ -1,16 +1,33 @@
-public class Animal {
-    static int countAnimal = 0;
+class Animal {
+    protected String name;
+    protected int runLimit;
+    protected int swimLimit;
+    protected static int animalCount;
 
-    Animal() {
-        countAnimal++;
+    public Animal(String name, int runLimit, int swimLimit) {
+        this.name = name;
+        this.runLimit = runLimit;
+        this.swimLimit = swimLimit;
+        animalCount++;
     }
 
-    void run(int ran) {
-        System.out.println("Animal have run " + ran + " m");
+    public void run(int distance) {
+        if (distance <= runLimit) {
+            System.out.println(name + " ran " + distance + " м.");
+        } else {
+            System.out.println(name + " can't run " + distance + " м.");
+        }
     }
 
-    void swim(int ran) {
-        System.out.println("Animal have swam " + ran + " m");
+    public void swim(int distance) {
+        if (distance <= swimLimit) {
+            System.out.println(name + " swam " + distance + " м.");
+        } else {
+            System.out.println(name + " can't swim " + distance + " м.");
+        }
     }
 
+    public static int getAnimalCount() {
+        return animalCount;
+    }
 }
