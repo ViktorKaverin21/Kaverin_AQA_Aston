@@ -1,36 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Park {
+    private List<Attraction> attractions;
 
-    public class Attractions {
-        private String name;
-        private String time;
-        private double price;
-
-        public Attractions(String name, String time, double price) {
-            this.name = name;
-            this.time = time;
-            this.price = price;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public double getPrice() {
-            return price;
-        }
+    public Park() {
+        attractions = new ArrayList<>();
     }
 
-    public static void main(String[] args) {
+    public void addAttraction(String name, String workingHours, double price) {
+        Attraction attraction = new Attraction(name, workingHours, price);
+        attractions.add(attraction);
+    }
 
-        Park park = new Park();
-        Park.Attractions attraction = park.new Attractions("Carousel", "09:00 - 20:00", 7.0);
-
-        System.out.println("Attraction name: " + attraction.getName());
-        System.out.println("Attraction time: " + attraction.getTime());
-        System.out.println("Attraction price: " + attraction.getPrice());
+    public List<Attraction> getAttractions() {
+        return attractions;
     }
 }
