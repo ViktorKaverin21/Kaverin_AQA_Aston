@@ -1,15 +1,21 @@
-class Bowl {
-    private int foodAmount;
+public class Bowl {
+    private int amountOfFood;
 
-    public Bowl(int foodAmount) {
-        this.foodAmount = Math.max(0, foodAmount);
+    public void increaseAmountOfFood(int amountOfFood) {
+        this.amountOfFood += amountOfFood;
     }
 
-    public void addFood(int amount) {
-        foodAmount += Math.max(0, amount);
+    public void decreaseAmountOfFood(int amountToDecrease) {
+        amountOfFood -= amountToDecrease;
     }
 
-    public int getFoodAmount() {
-        return foodAmount;
+    public int getAmountOfFood() {
+        return amountOfFood;
+    }
+
+    public void info() {
+
+        System.out.println("\nAmount of food in bowl : " + amountOfFood);
+
     }
 }

@@ -1,32 +1,39 @@
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("Tuzik");
-        Cat cat1 = new Cat("Barsik");
-        Cat cat2 = new Cat("Tuzik");
 
-        Animal[] animals = {dog, cat1, cat2};
-        Bowl bowl = new Bowl(15);
+        Dog dog1 = new Dog("Tuzik");
+        Cat cat1 = new Cat("Barsik", 20);
+        Cat cat2 = new Cat("Murzik", 25);
 
-        for (Animal animal : animals) {
-            animal.run(300);
-            animal.swim(5);
+        cat1.run(201);
+        cat2.run(200);
+        dog1.run(500);
+        dog1.run(501);
+        cat1.swim(1);
+        dog1.swim(9);
+        dog1.swim(11);
+
+        Animal.printQuantityOfAnimals();
+        Cat.printQuantityOfCats();
+        Dog.printQuantityOfDogs();
+
+        Cat[] cats = new Cat[4];
+        cats[0] = cat1;
+        cats[1] = cat2;
+        cats[2] = new Cat("Marsik", 30);
+        cats[3] = new Cat("Persik", 25);
+
+        Bowl bowl = new Bowl();
+        bowl.increaseAmountOfFood(74);
+
+        for (Cat cat : cats) {
+            cat.eatFood(bowl);
         }
 
-        System.out.println("Number of animals created: " + Animal.getAnimalCount());
+        bowl.info();
 
-        System.out.println("Information about cats' satiety:\n");
-        for (Cat cat : new Cat[]{cat1, cat2}) {
-            cat.eat(bowl.getFoodAmount());
-            System.out.println(cat.name + " full: " + cat.isSatiety());
-        }
-
-        System.out.println("Adding food to the bowl...");
-        bowl.addFood(10);
-
-        System.out.println("New information about satiety of cats:");
-        for (Cat cat : new Cat[]{cat1, cat2}) {
-            cat.eat(bowl.getFoodAmount());
-            System.out.println(cat.name + " full: " + cat.isSatiety());
+        for (Cat cat : cats) {
+            cat.satietyInfo();
         }
     }
 }
