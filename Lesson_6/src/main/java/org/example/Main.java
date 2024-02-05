@@ -19,11 +19,7 @@ public class Main {
 
         try {
             appData.load("data.csv");
-
         } catch (IOException | CsvValidationException e) {
-
-        } catch (IOException e) {
-
             e.printStackTrace();
         }
     }
