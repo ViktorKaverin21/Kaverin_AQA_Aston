@@ -1,10 +1,7 @@
 package org.example;
 
-<<<<<<< HEAD
 import com.opencsv.exceptions.CsvValidationException;
 
-=======
->>>>>>> a2a0b04fa99a67e0f825773abe5d0b3827429830
 import java.io.IOException;
 
 public class Main {
@@ -22,11 +19,11 @@ public class Main {
 
         try {
             appData.load("data.csv");
-<<<<<<< HEAD
+
         } catch (IOException | CsvValidationException e) {
-=======
+
         } catch (IOException e) {
->>>>>>> a2a0b04fa99a67e0f825773abe5d0b3827429830
+
             e.printStackTrace();
         }
     }
