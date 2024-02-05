@@ -18,14 +18,10 @@ public class AppData {
     }
 
     public void save(String filePath) throws IOException {
-
         try (CSVWriter writer = new CSVWriter(new FileWriter(filePath), ';',
                 CSVWriter.DEFAULT_QUOTE_CHARACTER,
                 CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                 CSVWriter.DEFAULT_LINE_END)) {
-
-        try (CSVWriter writer = new CSVWriter(new FileWriter(filePath))) {
-
             writer.writeNext(header);
 
             for (int[] row : data) {
@@ -39,9 +35,6 @@ public class AppData {
     }
 
     public void load(String filePath) throws IOException, CsvValidationException {
-
-    public void load(String filePath) throws IOException {
-
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
             try {
                 header = reader.readNext();
@@ -50,28 +43,13 @@ public class AppData {
             }
 
             String[] nextLine;
-
             while ((nextLine = reader.readNext()) != null) {
                 int[] row = new int[nextLine.length];
                 for (int i = 0; i < nextLine.length; i++) {
                     String[] rowData = nextLine[i].split(";");
                     row[i] = Integer.parseInt(rowData[0].replaceAll("\"", ""));
-
-            while (true) {
-                try {
-                    if (!((nextLine = reader.readNext()) != null))
-                        break;
-                } catch (CsvValidationException e) {
-                    throw new RuntimeException(e);
-                }
-                int[] row = new int[nextLine.length];
-                for (int i = 0; i < nextLine.length; i++) {
-                    row[i] = Integer.parseInt(nextLine[i]);
-
                 }
             }
         }
     }
 }
-
-
