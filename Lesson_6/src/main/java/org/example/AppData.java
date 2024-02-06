@@ -1,55 +1,76 @@
 package org.example;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvValidationException;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class AppData {
-    private String[] header;
-    private int[][] data;
+    String[] header;
+    int[][] data;
 
     public AppData(String[] header, int[][] data) {
         this.header = header;
         this.data = data;
     }
 
-    public void save(String filePath) throws IOException {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(filePath), ';',
-                CSVWriter.DEFAULT_QUOTE_CHARACTER,
-                CSVWriter.DEFAULT_ESCAPE_CHARACTER,
-                CSVWriter.DEFAULT_LINE_END)) {
-            writer.writeNext(header);
-
-            for (int[] row : data) {
-                String[] rowAsString = new String[row.length];
-                for (int i = 0; i < row.length; i++) {
-                    rowAsString[i] = String.valueOf(row[i]);
+    public void save(String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (int i = 0; i < header.length; i++) {
+                writer.append(header[i]);
+                if (i < header.length - 1) {
+                    writer.append(";");
+                } else {
+                    writer.append("\n");
                 }
-                writer.writeNext(rowAsString);
             }
+
+            for (int[] datum : data) {
+                for (int j = 0; j < datum.length; j++) {
+                    writer.append(String.valueOf(datum[j]));
+                    if (j < datum.length - 1) {
+                        writer.append(";");
+                    } else {
+                        writer.append("\n");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void load(String filePath) throws IOException, CsvValidationException {
-        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
-            try {
-                header = reader.readNext();
-            } catch (CsvValidationException e) {
-                throw new RuntimeException(e);
-            }
+    public static AppData load(String filePath) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
-            String[] nextLine;
-            while ((nextLine = reader.readNext()) != null) {
-                int[] row = new int[nextLine.length];
-                for (int i = 0; i < nextLine.length; i++) {
-                    String[] rowData = nextLine[i].split(";");
-                    row[i] = Integer.parseInt(rowData[0].replaceAll("\"", ""));
-                }
+            String[] header = reader.readLine().split(";");
+
+            int numRows = 0;
+            int numCols = header.length;
+            while (reader.readLine() != null) {
+                numRows++;
             }
+            reader.close();
+
+            int[][] data = new int[numRows][numCols];
+            reader = new BufferedReader(new FileReader(filePath));
+            reader.readLine();
+            String line;
+            int row = 0;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(";");
+                for (int i = 0; i < values.length; i++) {
+                    data[row][i] = Integer.parseInt(values[i]);
+                }
+                row++;
+            }
+            reader.close();
+            return new AppData(header, data);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
