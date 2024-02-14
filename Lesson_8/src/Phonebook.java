@@ -1,19 +1,23 @@
 import java.util.*;
 
 public class Phonebook {
-    private Map<String, List<String>> phonebook;
+    private Map<String, String> phonebook;
 
     public Phonebook() {
         phonebook = new HashMap<>();
     }
 
-    public void add(String surname, String phoneNumber) {
-        List<String> phoneNumbers = phonebook.getOrDefault(surname, new ArrayList<>());
-        phoneNumbers.add(phoneNumber);
-        phonebook.put(surname, phoneNumbers);
+    public void add(String surname, String phoneNumber ) {
+        phonebook.put(surname, phoneNumber);
     }
 
-    public List<String> get(String surname) {
-        return phonebook.getOrDefault(surname, new ArrayList<>());
+    public List<String> get(String phoneNumber) {
+        List<String> surnames = new ArrayList<>();
+        for (Map.Entry<String, String> entry : phonebook.entrySet()) {
+            if (entry.getKey().equals(phoneNumber)) {
+                surnames.add(entry.getValue());
+            }
+        }
+        return surnames;
     }
 }
