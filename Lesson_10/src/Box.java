@@ -10,10 +10,8 @@ class Box<T extends Fruit> {
     public void addFruit(T fruit) {
         fruits.add(fruit);
     }
+
     public float getWeight() {
-        if (fruits.isEmpty()) {
-            return 0;
-        }
 
         float weight = 0.0f;
         for (T fruit : fruits) {
