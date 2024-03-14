@@ -3,6 +3,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureId;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -30,9 +34,9 @@ public class CalcTest {
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     }
 
-    @Test
+    @Test @AllureId("")
     public void additionTest() {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
 
         try {
 
@@ -58,10 +62,11 @@ public class CalcTest {
             Assert.assertEquals(12.0, resultValue, "Expected result is incorrect");
         } catch (Exception e) {
             Assert.fail("Test failed: " + e.getMessage());
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)));
         }
     }
 
-    @Test
+    @Test @AllureId("")
     public void subtractionTest() {
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -89,11 +94,12 @@ public class CalcTest {
             Assert.assertEquals(6.0, resultValue, "Expected result is incorrect");
         } catch (Exception e) {
             Assert.fail("Test failed: " + e.getMessage());
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)));
 
         }
     }
 
-    @Test
+    @Test @AllureId("")
     public void multiplicationTest() {
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -121,12 +127,13 @@ public class CalcTest {
             Assert.assertEquals(27.0, resultValue, "Expected result is incorrect");
         } catch (Exception e) {
             Assert.fail("Test failed: " + e.getMessage());
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)));
 
 
         }
     }
 
-    @Test
+    @Test @AllureId("")
     public void divisionTest() {
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -154,12 +161,11 @@ public class CalcTest {
             Assert.assertEquals(3.0, resultValue, "Expected result is incorrect");
         } catch (Exception e) {
             Assert.fail("Test failed: " + e.getMessage());
-
-
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)));
         }
     }
 
-    @Test
+    @Test @AllureId("")
     public void zeroDivisionTest() {
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -181,6 +187,7 @@ public class CalcTest {
             Assert.assertEquals("Нельзя делить на ноль.", rawResult, "Expected result is incorrect");
         } catch (Exception e) {
             Assert.fail("Test failed: " + e.getMessage());
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(driver.getScreenshotAs(OutputType.BYTES)));
         }
     }
 }
