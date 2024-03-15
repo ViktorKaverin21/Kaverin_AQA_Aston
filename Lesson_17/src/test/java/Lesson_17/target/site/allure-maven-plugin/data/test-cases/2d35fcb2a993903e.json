@@ -1,0 +1,77 @@
+{
+  "uid" : "2d35fcb2a993903e",
+  "name" : "divisionTest",
+  "fullName" : "CalcTest.divisionTest",
+  "historyId" : "b3597188206694f8df37c6af736a027b",
+  "time" : {
+    "start" : 1710501595160,
+    "stop" : 1710501599051,
+    "duration" : 3891
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setup",
+    "time" : {
+      "start" : 1710501583497,
+      "stop" : 1710501590265,
+      "duration" : 6768
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "CalcTest"
+  }, {
+    "name" : "testClass",
+    "value" : "CalcTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "divisionTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Default Suite"
+  }, {
+    "name" : "suite",
+    "value" : "Lesson_17"
+  }, {
+    "name" : "subSuite",
+    "value" : "CalcTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UECTVMR"
+  }, {
+    "name" : "thread",
+    "value" : "5184@DESKTOP-UECTVMR.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2d35fcb2a993903e.json",
+  "parameterValues" : [ ]
+}

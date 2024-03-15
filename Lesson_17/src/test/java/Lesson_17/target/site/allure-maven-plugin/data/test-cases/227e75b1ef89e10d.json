@@ -1,0 +1,77 @@
+{
+  "uid" : "227e75b1ef89e10d",
+  "name" : "multiplicationTest",
+  "fullName" : "CalcTest.multiplicationTest",
+  "historyId" : "7d9905fc6006451ce1ee958947fbab2d",
+  "time" : {
+    "start" : 1710501599058,
+    "stop" : 1710501603239,
+    "duration" : 4181
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setup",
+    "time" : {
+      "start" : 1710501583497,
+      "stop" : 1710501590265,
+      "duration" : 6768
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "CalcTest"
+  }, {
+    "name" : "testClass",
+    "value" : "CalcTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "multiplicationTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Default Suite"
+  }, {
+    "name" : "suite",
+    "value" : "Lesson_17"
+  }, {
+    "name" : "subSuite",
+    "value" : "CalcTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UECTVMR"
+  }, {
+    "name" : "thread",
+    "value" : "5184@DESKTOP-UECTVMR.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "227e75b1ef89e10d.json",
+  "parameterValues" : [ ]
+}

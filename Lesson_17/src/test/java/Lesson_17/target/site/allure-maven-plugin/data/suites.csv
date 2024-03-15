@@ -1,0 +1,6 @@
+"Status","Name","Duration in ms","Description"
+"passed","CalcTest.divisionTest","3891",""
+"passed","CalcTest.additionTest","4764",""
+"passed","CalcTest.subtractionTest","4075",""
+"passed","CalcTest.zeroDivisionTest","4165",""
+"passed","CalcTest.multiplicationTest","4181",""
